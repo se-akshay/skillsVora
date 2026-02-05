@@ -12,7 +12,7 @@ export default function Insights() {
     try {
       const token = localStorage.getItem("token");
       const response = await fetch(
-        "http://localhost:5000/api/employee/insights/data",
+        "https://skills-vora.vercel.app/api/employee/insights/data",
         {
           headers: { Authorization: `Bearer ${token}` },
         },

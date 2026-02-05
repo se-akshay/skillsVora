@@ -25,18 +25,21 @@ export default function AddEmployee({ onSuccess }) {
 
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("http://localhost:5000/api/employee", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
+      const response = await fetch(
+        "https://skills-vora.vercel.app/api/employee",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            ...formData,
+            salary: Number(formData.salary),
+            experience: Number(formData.experience),
+          }),
         },
-        body: JSON.stringify({
-          ...formData,
-          salary: Number(formData.salary),
-          experience: Number(formData.experience),
-        }),
-      });
+      );
 
       const data = await response.json();
 

@@ -13,9 +13,12 @@ export default function ViewEmployees() {
   const fetchEmployees = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("http://localhost:5000/api/employee", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const response = await fetch(
+        "https://skills-vora.vercel.app/api/employee",
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        },
+      );
       const data = await response.json();
       setEmployees(Array.isArray(data) ? data : []);
     } catch (err) {
@@ -29,10 +32,13 @@ export default function ViewEmployees() {
     if (!confirm("Are you sure?")) return;
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(`http://localhost:5000/api/employee/${id}`, {
-        method: "DELETE",
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const response = await fetch(
+        `https://skills-vora.vercel.app/api/employee/${id}`,
+        {
+          method: "DELETE",
+          headers: { Authorization: `Bearer ${token}` },
+        },
+      );
       if (response.ok) {
         setEmployees(employees.filter((e) => e._id !== id));
         alert("Employee deleted");

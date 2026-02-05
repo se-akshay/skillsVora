@@ -14,7 +14,7 @@ export default function SearchEmployee() {
     try {
       const token = localStorage.getItem("token");
       const response = await fetch(
-        `http://localhost:5000/api/employee/search/query?search=${searchTerm}`,
+        `https://skills-vora.vercel.app/api/employee/search/query?search=${searchTerm}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         },

@@ -31,7 +31,7 @@ export default function FilterEmployee() {
 
       const token = localStorage.getItem("token");
       const response = await fetch(
-        `http://localhost:5000/api/employee/filter/data?${params.toString()}`,
+        `https://skills-vora.vercel.app/api/employee/filter/data?${params.toString()}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         },

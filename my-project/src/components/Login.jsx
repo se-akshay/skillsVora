@@ -14,11 +14,14 @@ export default function Login({ onLoginSuccess }) {
 
     try {
       const endpoint = isRegister ? "/api/auth/register" : "/api/auth/login";
-      const response = await fetch(`http://localhost:5000${endpoint}`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ userName, password }),
-      });
+      const response = await fetch(
+        `https://skills-vora.vercel.app${endpoint}`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ userName, password }),
+        },
+      );
 
       const data = await response.json();
 
